@@ -1,6 +1,6 @@
 # Huayang-technology-co.-LTD
-PHP 
-一款手机4S店会员管理软件
+PHP
+一款手机4S店会员管理软件 
 功能介绍：  
         1.添加会员基本信息，自动绑定IMEI号码。  
         2.根据IMEI号码添加售后及维修服务内容。  
