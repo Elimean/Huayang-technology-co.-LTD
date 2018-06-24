@@ -11,8 +11,10 @@ $maintenance=$_POST["maintenance"];
 $mtn_data=date("Y/m/d H:i:s");
 $mtn_name=$_POST["mtn_name"];
 $note=$_POST["note"];
-if (empty($after_sales)||empty($maintenance)||empty($mtn_name)) {
-    echo "<script>alert('售后、维修、维修人不能为空！');window.location.href='../../view/members/index.php'</script>";
+if (empty($mtn_name)) {
+    echo "<script>alert('维修人不能为空！');window.location.href='../../view/members/index.php'</script>";
+}elseif (empty($after_sales)&&empty($maintenance)) {
+    echo "<script>alert('售后或维修不能为空！');window.location.href='../../view/members/index.php'</script>";
 }else{
 $sql="insert into t_service_info (imei,after_sales,maintenance,mtn_data,mtn_name,note) values ('$imei','$after_sales','$maintenance','$mtn_data','$mtn_name','$note')";
 $query=$conn->query($sql);
