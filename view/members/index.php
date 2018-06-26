@@ -34,7 +34,7 @@ $query=$conn->query($sql);
          <section class="top-bar-section">
            <ul class="left">
              <li class="active"><a href="#">首页</a></li>
-             <li><a href="query.php">查询</a></li>
+             <li><a href="query.php?p=1">查询</a></li>
              <li><a href="index_mem_add.php">添加会员</a></li>
              <li><a href="../../controller/unset/index.php">退出</a></li>
            </ul>
@@ -54,7 +54,7 @@ $query=$conn->query($sql);
    </div>
    <div class="row">
      <div class="small-12 columns">
-       
+
      </div>
    </div>
    <!--初始化 Foundation JS-->

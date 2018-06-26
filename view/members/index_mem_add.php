@@ -31,7 +31,7 @@ if (!isset($_SESSION['admin_name'])) {
          <section class="top-bar-section">
            <ul class="left">
              <li><a href="index.php">首页</a></li>
-             <li><a href="query.php">查询</a></li>
+             <li><a href="query.php?p=1">查询</a></li>
              <li class="active"><a href="#">添加会员</a></li>
              <li><a href="../../controller/unset/index.php">退出</a></li>
            </ul>

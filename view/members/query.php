@@ -4,8 +4,15 @@ if (!isset($_SESSION['admin_name'])) {
   echo "<script>window.location.href='../../view/index/index.php'</script>";
 }
 require_once("../../database/database.php");
-$sql="select * from t_member_info";
-$query=$conn->query($sql);
+$page=$_GET['p'];
+$pagesize=8;
+$sql_page="select * from t_member_info limit ".($page-1)*$pagesize.",".$pagesize;
+$sql_total="select count(*) from t_member_info";
+$query=$conn->query($sql_page);
+$query_total=$conn->query($sql_total);
+$row_total=$query_total->fetch_array();
+$row_count=$row_total[0];
+$row_page=ceil($row_count/$pagesize);
  ?>
 <!DOCTYPE html>
 <html ng-app="ionicApp">
@@ -52,6 +59,15 @@ $query=$conn->query($sql);
             }
           }?>
         </ul>
+        <ul class="pagination">
+          <li <?php if($page==1){echo"class=unavailable";}?>><a href="<?php echo $_SERVER['PHP_SELF']?>?p=<?php echo $page-1;?>">上一页</a></li>
+          <li <?php if($page==$row_page){echo"class=unavailable";}?>><a href="<?php echo $_SERVER['PHP_SELF']?>?p=<?php echo $page+1;?>">下一页</a></li>
+       </ul>
+       <ul class="pagination">
+         <li>第<?php echo $page;?>页</li>
+         <li>共<?php echo $row_page;?>页</li>
+         <li>共<?php echo $row_count;?>条信息</li>
+       </ul>
       </div>
     </div>
     <!--初始化 Foundation JS-->
